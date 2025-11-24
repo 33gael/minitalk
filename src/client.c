@@ -6,7 +6,12 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/11/21 09:44:41 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/11/24 13:54:31 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minitalk.h"
+
+int	main(int PID, char **message)
+{
+}
