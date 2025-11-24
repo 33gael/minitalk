@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/11/24 15:54:13 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:26:41 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	main(void)
 {
-	ft_printf("%s", getgid());
+	ft_printf("%d", getgid());
 }
