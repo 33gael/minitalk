@@ -6,9 +6,13 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/11/24 09:18:13 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/11/24 15:54:13 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+int	main(void)
+{
+	ft_printf("%s", getgid());
+}
