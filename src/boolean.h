@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   boolean.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/11/26 12:26:21 by gaeducas         ###   ########.fr       */
+/*   Created: 2025/11/26 13:08:01 by gaeducas          #+#    #+#             */
+/*   Updated: 2025/11/26 13:08:30 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-int	main(int PID, char **av)
-{
-	int i;
+# define TRUE 1;
+# define FALSE 0;
 
-	i = 0;
-	if (PID != 3)
-		return (0);
-}
+typedef int	t_bool;
+
+#endif
