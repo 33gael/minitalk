@@ -6,22 +6,36 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/02 16:40:54 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/05 15:17:21 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+void	bit_to_char(pid_t server_pid, char c)
+{
+	int	i;
+
+	i = 8;
+	while (i--)
+	{
+		if ((c >> i) & 1)
+			kill(server_pid, SIGUSR2);
+		else
+			kill(server_pid, SIGUSR1);
+		usleep(500);
+	}
+	usleep(100);
+}
+
 int	main(int argc, char **argv)
 {
-	int pid;
-	char *str;
+	pid_t server_pid;
+	char c;
 
-	if (argc == 3)
+	if (argc != 3)
 	{
-		pid = ft_atoi(argv[1]);
-		str = argv[2];
-		// envoyer le message
-	}
-	else
 		ft_printf("\nPlease write more than 1 character");
+	}
+	bit_to_char(server_pid, c);
+}
