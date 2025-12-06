@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/05 15:22:25 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/06 11:16:30 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,27 @@ void	bit_to_char(pid_t server_pid, char c)
 	usleep(100);
 }
 
+void	send_string(pid_t server_pid, char *str)
+{
+	while (*str)
+	{
+		bit_to_char(server_pid, *str);
+		str++;
+	}
+	bit_to_char(server_pid, '\n');
+	bit_to_char(server_pid, '\0');
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t server_pid;
-	char c;
+	char *str;
 
 	if (argc != 3)
 	{
 		ft_printf("\nERROR");
 		return (1);
 	}
-	bit_to_char(server_pid, c);
+	send_string(server_pid, str);
 	return (0);
 }
