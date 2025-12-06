@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/05 15:17:21 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/05 15:22:25 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_printf("\nPlease write more than 1 character");
+		ft_printf("\nERROR");
+		return (1);
 	}
 	bit_to_char(server_pid, c);
+	return (0);
 }
