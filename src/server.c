@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/07 12:42:59 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:34:49 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int	main(void)
 	int					pid;
 
 	pid = getpid();
-	ft_putnbr(pid);
-	write(1, "\n", 1);
 	sa.sa_sigaction = signal_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	ft_printf("%s: %d\n", "✅ PID Received ", getpid());
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
+	write(1, "\n", 1);
 	while (1)
 		pause();
+	write(1, "\n", 1);
 }
