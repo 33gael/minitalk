@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
+/*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/06 10:43:51 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/07 11:49:50 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	signal_handler(int signum, siginfo_t *info, void *ucontext)
+static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 {
 	(void)info;
 	(void)ucontext;
 	if (signum == SIGUSR1)
 		ft_printf("SIGUSR1 Received\n");
+	else if (signum == SIGUSR2)
+		ft_printf("Signal Received");
 	exit(0);
 }
 
@@ -37,5 +39,4 @@ int	main(void)
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 		pause();
-	return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
+/*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/06 11:16:30 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/07 11:42:23 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	bit_to_char(pid_t server_pid, char c)
+static void	bit_to_char(pid_t server_pid, char c)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	bit_to_char(pid_t server_pid, char c)
 	usleep(100);
 }
 
-void	send_string(pid_t server_pid, char *str)
+static void	send_string(pid_t server_pid, char *str)
 {
 	while (*str)
 	{
