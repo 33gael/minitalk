@@ -6,13 +6,13 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/07 11:42:23 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:47:40 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void	bit_to_char(pid_t server_pid, char c)
+static void	char_to_bit(pid_t server_pid, char c)
 {
 	int	i;
 
@@ -32,18 +32,20 @@ static void	send_string(pid_t server_pid, char *str)
 {
 	while (*str)
 	{
-		bit_to_char(server_pid, *str);
+		char_to_bit(server_pid, *str);
 		str++;
 	}
-	bit_to_char(server_pid, '\n');
-	bit_to_char(server_pid, '\0');
+	char_to_bit(server_pid, '\n');
+	char_to_bit(server_pid, '\0');
 }
 
 int	main(int argc, char **argv)
 {
 	pid_t server_pid;
 	char *str;
+	str = argv[2];
 
+	server_pid = ft_atoi(argv[1]);
 	if (argc != 3)
 	{
 		ft_printf("\nERROR");
