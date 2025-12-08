@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/07 18:36:44 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:03:33 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static void	send_string(pid_t server_pid, char *str)
 
 int	main(int argc, char **argv)
 {
-	pid_t server_pid;
-	char *str;
-	str = argv[2];
+	pid_t	server_pid;
+	char	*str;
 
+	str = argv[2];
 	server_pid = ft_atoi(argv[1]);
 	if (argc != 3)
 	{
