@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/08 12:03:33 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/08 16:55:11 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ static void	char_to_bit(pid_t server_pid, char c)
 			kill(server_pid, SIGUSR2);
 		else
 			kill(server_pid, SIGUSR1);
-		usleep(500);
+		usleep(100);
 	}
-	usleep(100);
 }
 
 static void	send_string(pid_t server_pid, char *str)
 {
+	if (!str)
+		return ;
 	while (*str)
 	{
 		char_to_bit(server_pid, *str);
