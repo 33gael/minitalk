@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/08 17:29:59 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/09 09:37:05 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 	{
 		if (current_char != '\0')
 			write(1, &current_char, 1);
-		// else
-		// 	write(1, "\n", 1);
 		current_char = 0;
 		bit_index = 0;
 	}
