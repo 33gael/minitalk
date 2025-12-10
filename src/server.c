@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/09 14:26:35 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/09 21:42:50 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,9 @@ static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 {
 	static int	bit_index = 0;
 	static char	current_char = 0;
-	pid_t		client_pid;
 
+	(void)info;
 	(void)ucontext;
-	client_pid = info->si_pid;
 	current_char <<= 1;
 	if (signum == SIGUSR2)
 		current_char |= 1;
