@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:44 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/09 21:42:50 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/10 23:57:20 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,38 @@ static int	append_char_to_msg(char c)
 	return (1);
 }
 
+// static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
+// {
+// 	static int	bit_index = 0;
+// 	static char	current_char = 0;
+
+// 	(void)info;
+// 	(void)ucontext;
+// 	current_char <<= 1;
+// 	if (signum == SIGUSR2)
+// 		current_char |= 1;
+// 	bit_index++;
+// 	if (bit_index == 8)
+// 	{
+// 		if (current_char != '\0')
+// 		{
+// 			if (!append_char_to_msg(current_char))
+// 				ft_printf("Error of memory allocation\n");
+// 		}
+// 		else
+// 		{
+// 			if (g_msg != NULL)
+// 			{
+// 				ft_printf("%s\n", g_msg);
+// 				free(g_msg);
+// 				g_msg = NULL;
+// 			}
+// 		}
+// 		current_char = 0;
+// 		bit_index = 0;
+// 	}
+// }
+
 static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 {
 	static int	bit_index = 0;
@@ -76,18 +108,10 @@ static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 
 	(void)info;
 	(void)ucontext;
-	current_char <<= 1;
-	if (signum == SIGUSR2)
-		current_char |= 1;
-	bit_index++;
-	if (bit_index == 8)
+	current_char = (current_char << 1) | (signum == SIGUSR2);
+	if (++bit_index == 8)
 	{
-		if (current_char != '\0')
-		{
-			if (!append_char_to_msg(current_char))
-				ft_printf("Error of memory allocation\n");
-		}
-		else
+		if (current_char == '\0')
 		{
 			if (g_msg != NULL)
 			{
@@ -96,6 +120,8 @@ static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 				g_msg = NULL;
 			}
 		}
+		else if (!append_char_to_msg(current_char))
+			ft_printf("Error of memory allocation\n");
 		current_char = 0;
 		bit_index = 0;
 	}
@@ -106,7 +132,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	g_msg = NULL;
-	ft_printf("%s: %d\n", "✅ PID Received ", getpid());
+	ft_printf("%s: %d\n", "✅ PID Received : ", getpid());
 	sa.sa_sigaction = signal_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
