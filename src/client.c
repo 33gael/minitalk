@@ -6,7 +6,7 @@
 /*   By: gaeducas <gaeducas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:44:40 by gaeducas          #+#    #+#             */
-/*   Updated: 2025/12/08 16:55:11 by gaeducas         ###   ########.fr       */
+/*   Updated: 2025/12/11 16:24:04 by gaeducas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,16 @@ int	main(int argc, char **argv)
 
 	str = argv[2];
 	server_pid = ft_atoi(argv[1]);
+	if (ft_atoi(argv[1]) == -1)
+	{
+		ft_printf("Don't do this it will log out your session !!!");
+		return (1);
+	}
+	if (ft_atoi(argv[1]) <= 0)
+	{
+		ft_printf("Error you can't use this PID !!!");
+		return (1);
+	}
 	if (argc != 3)
 	{
 		ft_printf("\nERROR");
