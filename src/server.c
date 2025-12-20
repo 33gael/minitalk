@@ -48,13 +48,13 @@ static void	signal_handler(int signum, siginfo_t *info, void *ucontext)
 		{
 			if (g_msg != NULL)
 			{
-				ft_printf("%s\n", g_msg);
+				printf("%s\n", g_msg);
 				free(g_msg);
 				g_msg = NULL;
 			}
 		}
 		else if (!append_char_to_msg(current_char))
-			ft_printf("Error of memory allocation\n");
+			printf("Error of memory allocation\n");
 		current_char = 0;
 		bit_index = 0;
 	}
@@ -65,7 +65,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	g_msg = NULL;
-	ft_printf("%s: %d\n", "✅ PID Received ", getpid());
+	printf("%s: %d\n", "✅ PID Received ", getpid());
 	sa.sa_sigaction = signal_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
